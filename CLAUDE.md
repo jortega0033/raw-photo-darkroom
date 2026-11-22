@@ -1,6 +1,6 @@
 # RAW Photo Darkroom: instructions for coding agents
 
-Planning-only repository today. There is no application code, no test suite and no CI. Everything below about commands and modules is planned; each item names the ticket that introduces it. Do not claim a command works until that ticket has merged and you have run it.
+Planning-only repository today. There is no application code and no test suite yet. CI (.github/workflows/ci.yml) is installed; until ticket #2 lands it runs only the review-gate self-test. Everything below about commands and modules is planned; each item names the ticket that introduces it. Do not claim a command works until that ticket has merged and you have run it.
 
 ## Product and source of truth
 

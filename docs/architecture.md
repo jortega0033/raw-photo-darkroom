@@ -21,7 +21,7 @@ Nothing here exists yet. This page names where the requirements in [TECHNICAL_SP
 |---|---|
 | `POST /api/projects` (body: DNG bytes) | Import; returns project ID, dimensions, profile or a typed error |
 | `GET /api/projects/{id}` | Metadata, current revision, history pointers |
-| `GET /api/projects/{id}/render?revision=R&view=before` or `view=after` | Pixels from the renderer (raw RGB or PNG) at 1:1 |
+| `GET /api/projects/{id}/render?view=before` or `view=after` (`&revision=R` from #4) | Pixels from the renderer (raw RGB or PNG) at 1:1. Until #4 the after view renders the project's single current recipe stored by #2; #4 binds it to a revision ID |
 | `POST /api/projects/{id}/revisions` (expected revision, recipe) | Commit; a conflict response preserves the draft |
 | `POST /api/projects/{id}/undo` and `/redo` | Move the pointer |
 | `POST /api/projects/{id}/export` | Single PNG at a frozen revision |

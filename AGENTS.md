@@ -24,7 +24,7 @@ The server binds `127.0.0.1` only.
 
 ## Ticket work
 
-To implement a GitHub issue, follow [.claude/skills/implement-ticket/SKILL.md](.claude/skills/implement-ticket/SKILL.md) (added with the agent wiring) and the Git workflow in [CLAUDE.md](CLAUDE.md). Only the owner merges.
+To implement a GitHub issue, follow [.claude/skills/implement-ticket/SKILL.md](.claude/skills/implement-ticket/SKILL.md) and the Git workflow in [CLAUDE.md](CLAUDE.md). Only the owner merges.
 
 ## Loop conventions
 

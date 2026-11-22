@@ -75,7 +75,7 @@ The steps at which each role runs are in `.claude/skills/implement-ticket/SKILL.
 
 A section titled "In this repository" was inserted after the frontmatter of every Agency Agents role in `.claude/agents/`. It is project-specific text written for this repository, not upstream text, and it describes the planned stack and modules (no application code exists yet). To compare a role with the pinned upstream file, remove that section as well as the "Use proactively" sentence and the `tools:` line.
 
-The `claude -p` loading check was not run for this change. Loading is unverified for these files.
+Superseded: the `claude -p` loading check was not run at the time of this change, but it was run later; see "Loading check, run 2026-11-22" below.
 
 ## Local change: UI quality references (2026-11-22)
 

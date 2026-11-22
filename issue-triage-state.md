@@ -27,4 +27,4 @@ Needs human: 0
 
 ## Denylist (always human)
 
-request guards (loopback bind, Host, Origin, body cap, security headers, static allowlist), SQLite schema and migrations, the revision compare-and-set on save, how note text reaches the page, public JSON API, new dependencies or external requests, breaking-change
+request guards (loopback bind, Host, body cap, static allowlist, and any other guard that exists), SQLite schema and migrations, the revision compare-and-set on save, DNG parser limits and rejection rules, renderer rounding and processing order, public JSON API, new dependencies or external requests, breaking-change

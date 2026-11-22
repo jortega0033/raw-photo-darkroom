@@ -24,10 +24,12 @@
       "Bash(python -m unittest)",
       "Bash(python -m unittest *)",
       "Bash(python tools/make_fixtures.py *)",
-      "Bash(python -m darkroom *)",
+      "Bash(python -m darkroom --data-dir *)",
+      "Bash(python -m darkroom orphans --list*)",
       "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py *)"
     ],
     "ask": [
+      "Bash(python -m darkroom *--remove*)",
       "Edit(/.github/**)",
       "Edit(/.claude/**)",
       "Edit(/CLAUDE.md)",

@@ -48,7 +48,7 @@ Doctor exit codes: 0 healthy, 1 warnings, 2 blocked. Both commands fetch the pac
 ## Human Gates
 
 - Priority assignment (P0, P1): human only.
-- Anything touching the request guards in `darkroom/server.py` (loopback bind, Host and Origin checks, body cap, CSP and the other security headers, the static allowlist), the SQLite schema or its migrations in `darkroom/store.py`, the strict DNG parser limits and rejection rules, the revision compare-and-set on save, the renderer's rounding and processing order, or the HTTP contract in `docs/architecture.md`: always escalate.
+- Anything touching the request guards in `darkroom/server.py` (loopback bind, Host check, body cap, static allowlist, and any other request guard that exists), the SQLite schema or its migrations in `darkroom/store.py`, the strict DNG parser limits and rejection rules, the revision compare-and-set on save, the renderer's rounding and processing order, or the HTTP contract in `docs/architecture.md`: always escalate.
 - Anything that would add a dependency, a build step, an external request or a non-loopback listener: always escalate. The product is offline by design ([docs/PRD.md](docs/PRD.md), success criteria).
 - Duplicate closure: human confirms.
 - Stale issue closure: human confirms.
