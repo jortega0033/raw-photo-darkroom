@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: test (${{ matrix.os }}, python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      # Guard: the application does not exist yet, so there is no test suite to run.
+      # Ticket #2 (walking skeleton) creates darkroom/__main__.py and tests/, and must
+      # delete this `if:` line so that the tests run unconditionally.
+      - name: Run tests
+        if: ${{ hashFiles('darkroom/__main__.py') != '' }}
+        run: python -m unittest
+      - name: Review gate self-test
+        run: python .claude/hooks/role_gate.py --self-test
