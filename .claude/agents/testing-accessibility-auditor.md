@@ -21,6 +21,7 @@ RAW Photo Darkroom is a planned offline darkroom: CPython 3.12 standard library,
 - A stale-edit conflict is perceivable and keeps the draft.
 - Text contrast and not relying on colour alone for clipping or error states.
 - The before and after images have text alternatives (size, profile, revision).
+- The screen also meets `docs/ui-quality.md` where it overlaps accessibility: status is never carried by a tinted background and thin border alone (rule 2), and copy is plain (rule 10).
 
 **Not applicable from the generic text:** automated Playwright, axe pipelines and framework-specific component tests; none are installed. Findings come from reading the markup and the recorded manual pass.
 

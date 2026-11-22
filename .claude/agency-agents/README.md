@@ -76,3 +76,17 @@ The steps at which each role runs are in `.claude/skills/implement-ticket/SKILL.
 A section titled "In this repository" was inserted after the frontmatter of every Agency Agents role in `.claude/agents/`. It is project-specific text written for this repository, not upstream text, and it describes the planned stack and modules (no application code exists yet). To compare a role with the pinned upstream file, remove that section as well as the "Use proactively" sentence and the `tools:` line.
 
 The `claude -p` loading check was not run for this change. Loading is unverified for these files.
+
+## Local change: UI quality references (2026-11-22)
+
+One bullet naming `docs/ui-quality.md` was added to the "In this repository" section of Frontend Developer, Accessibility Auditor, Code Reviewer and Software Architect. The `implement-ticket` playbook now names the `ui-ux-pro-max` and `unslop` skills at the steps where they apply. Nothing else in the role files changed.
+
+## Loading check, run 2026-11-22 (Claude Code 2.1.323, model requested: haiku)
+
+Run from the repository root of the prep worktree, after the SDLC kit was installed:
+
+```text
+claude -p "List every project subagent in .claude/agents with its name and tools, say whether each starts with a section titled In this repository, and list the project skills." --model haiku
+```
+
+Result: 11 project subagents found. Ten have an "In this repository" section; `loop-verifier` has none (it is a Loop Engineering role, not an Agency Agents role). Tools reported: Code Reviewer, Database Reliability Engineer, Software Architect, Application Security Engineer, Accessibility Auditor, Reality Checker and loop-verifier: `Read, Grep, Glob`. Backend Architect, Frontend Developer, API Tester and Performance Benchmarker: no `tools:` line (all tools, as designed: these roles can edit). Project skills found: implement-ticket, issue-triage, loop-budget, loop-constraints, loop-intake, next-ticket, ui-ux-pro-max, unslop. Claude Code also printed that the workspace was not trusted yet, so it ignored the `permissions.allow` entries of `.claude/settings.json` for that headless run; this does not affect loading of agents or skills.

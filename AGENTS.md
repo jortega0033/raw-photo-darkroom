@@ -31,3 +31,5 @@ To implement a GitHub issue, follow [.claude/skills/implement-ticket/SKILL.md](.
 - The loop runs at L1: report-only, started by hand. It proposes; it does not label, comment, close, edit source, push or merge.
 - No scheduler and no scheduled workflow is installed. Do not add one without the owner's approval.
 - See [LOOP.md](LOOP.md) for the manual command and the human gates.
+
+Delivery workflow, review gate, CI and owner decisions: see "Delivery workflow" in [CLAUDE.md](CLAUDE.md).

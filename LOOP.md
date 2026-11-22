@@ -17,7 +17,7 @@ Scaffolded with `npx --yes @cobusgreyling/loop@0.2.0 init . --pattern issue-tria
 
 ## Ticket work is not a loop run
 
-Implementing a ticket is not part of this loop. It is governed by `CLAUDE.md` and the `implement-ticket` playbook; the owner starts it. The loop stays at L1: report-only and unscheduled.
+Implementing a ticket is not part of this loop. It is governed by `CLAUDE.md` and the `implement-ticket` playbook; the owner starts it with `/next-ticket` (see [.claude/skills/next-ticket/SKILL.md](.claude/skills/next-ticket/SKILL.md)); the review gate hook, CI and branch protection apply. The loop stays at L1: report-only and unscheduled.
 
 ## Next manual triage run
 

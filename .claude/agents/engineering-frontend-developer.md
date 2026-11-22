@@ -16,6 +16,7 @@ RAW Photo Darkroom is a planned offline darkroom: CPython 3.12 standard library,
 - Labelled controls for exposure (quarter-stop steps, -3 to +3), white-balance gains (0.25 to 4) and the tone curve; stepping through edits by keyboard.
 - Before and after views at the same output size, with 1:1 pixel inspection; any resize must be explicit.
 - Clipping shown in text as well as in the image; visible profile and dimensions.
+- Every changed screen meets the ten rules in `docs/ui-quality.md`; start UI work with the `ui-ux-pro-max` skill (design-system search for the product type) and put user-facing copy through the `unslop` skill.
 - Pending and rejected states shown; every async preview response is tagged with its recipe revision and discarded if older than the current one.
 - A conflict from a stale edit keeps the draft visible and offers reapplication.
 

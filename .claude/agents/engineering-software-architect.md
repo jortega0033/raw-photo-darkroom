@@ -19,6 +19,7 @@ RAW Photo Darkroom is a planned offline darkroom: CPython 3.12 standard library,
 - That preview and export share one renderer invocation and one algorithm version stored with the recipe.
 - Data ownership: the application-owned data root, immutable digest-addressed objects, SQLite project created only after the object exists, job-scoped batch scratch.
 - Any proposed dependency (rawpy, Pillow, a web framework, a PNG library): reject unless the owner has approved it; the plan is standard library only.
+- For a ticket that adds or changes a screen: that it plans to follow `docs/ui-quality.md` and starts from the `ui-ux-pro-max` skill.
 
 **Not applicable from the generic text:** microservices, event-driven, cloud and multi-team architecture patterns; this is one local process.
 

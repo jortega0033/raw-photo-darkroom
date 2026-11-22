@@ -20,6 +20,7 @@ RAW Photo Darkroom is a planned offline darkroom: CPython 3.12 standard library,
 - No EXIF, GPS, MakerNote or original absolute path in logs, errors or exports.
 - Nothing imports the HTTP layer from engine or parser; no new dependency.
 - Tests assert pixel values from the spec's fixture table, not values copied from the code under test.
+- On any UI diff, every changed screen meets the ten rules in `docs/ui-quality.md` (for example no thick one-sided accent border, no tinted-background-plus-hairline status marks); user-facing copy and docs read plain, as the `unslop` skill expects. A violation is a finding.
 
 **Not applicable from the generic text:** framework, style-guide and CI-pipeline examples; judge only against this repository's documents.
 

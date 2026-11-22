@@ -14,14 +14,14 @@ The project subagents in `.claude/agents/` are part of the work. Delegate to the
 
 1. **Read the ticket.** `gh issue view <number>` and the epic it belongs to. Check that every prerequisite issue is closed and that no owner decision named in the ticket is still open. If the ticket is blocked, stop and say what blocks it.
 2. **Read the rules.** `CLAUDE.md`, then the architecture notes it links to.
-3. **Orient and check the approach.** Delegate as the table "Before coding" says. Settle open design questions before writing code.
+3. **Orient and check the approach.** Delegate as the table "Before coding" says. For a ticket that adds or changes a screen, start with the `ui-ux-pro-max` skill (design-system search for the product type) and read `docs/ui-quality.md`. Settle open design questions before writing code.
 4. **Branch** as the Git workflow in `CLAUDE.md` says. Never work on the default branch.
 5. **Implement** inside the ticket's stated scope. Delegate the work to the implementing role that matches the files being changed (table "While coding"). Do not widen scope; note anything else you find as a follow-up.
-6. **Test.** Add or change tests for every acceptance criterion and material edge case, then run the checks listed in `CLAUDE.md`. Record each command and its result.
+6. **Test.** Add or change tests for every acceptance criterion and material edge case, then run the checks listed in `CLAUDE.md`. Record each command and its result. For a UI change, check every changed screen against the ten rules in `docs/ui-quality.md`.
 7. **Specialist review.** Run every role in the table "After coding" whose trigger matches the change.
 8. **Review gate, always.** Run Code Reviewer on the full diff. Fix every material finding, re-run the checks, and have the reviewer look again until no material finding is left.
 9. **Acceptance gate, always.** Run Reality Checker with the ticket's acceptance criteria and the evidence you produced. Do not call the ticket done unless it passes.
-10. **Hand off.** Capture the evidence `CLAUDE.md` asks for and open a draft pull request that names the issue. Do not merge.
+10. **Hand off.** Run user-facing copy, documentation and the pull request text through the `unslop` skill. Add a line to `CHANGELOG.md`. Capture the evidence `CLAUDE.md` asks for and open a draft pull request from the repository template that names the issue. Mark it ready only when the gates have run after the last code edit and CI is green. Do not merge.
 
 ## Roles
 

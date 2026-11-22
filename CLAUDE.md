@@ -63,8 +63,10 @@ Report each item with the exact command and its observed output; state what was 
 3. For import changes: a negative fixture per rejection class with the specific error type and proof that no project or object remains.
 4. For UI changes: the page loaded from `127.0.0.1` with external requests blocked, and a keyboard-only pass over the new controls.
 5. For export changes: decode the PNG with an independent reader and check dimensions, chunk allowlist and source digest unchanged.
-6. The reviewer and acceptance roles named in the pull request have returned a verdict on the final diff.
+6. The reviewer and acceptance roles named in the pull request have returned a verdict on the final diff, after the last code edit.
 7. No file outside the ticket's stated paths changed.
+8. CI is green on the pull request (both operating systems), and `CHANGELOG.md` has a line for the change.
+9. For UI changes, every changed screen was checked against `docs/ui-quality.md`; user-facing copy and docs went through the `unslop` skill.
 
 ## Ticket implementation: agent roles
 
@@ -78,3 +80,15 @@ Delegate to the roles without waiting to be asked; each description ends with a 
 - **On every ticket, before it is called done:** Code Reviewer, then Reality Checker. These two gates are never optional, whatever the size of the change.
 - Read-only roles (`tools: Read, Grep, Glob`) cannot run commands: give them the diff, the acceptance criteria and the recorded command output.
 - The session that wrote a change does not count as its reviewer. List each role that ran and its verdict in the pull request under "Agent roles run".
+
+## Delivery workflow
+
+- Start: the owner types `/next-ticket` ([.claude/skills/next-ticket/SKILL.md](.claude/skills/next-ticket/SKILL.md)); that is the go signal. Ticket work never starts on its own, and there is no scheduler. The work itself follows [.claude/skills/implement-ticket/SKILL.md](.claude/skills/implement-ticket/SKILL.md).
+- Review gate: [.claude/hooks/role_gate.py](.claude/hooks/role_gate.py) blocks `gh pr create` and `gh pr ready` until Code Reviewer and Reality Checker have run after the last code edit; documentation-only changes pass. Start Claude Code with `ROLE_GATE=off` in the environment to switch it off for one session (owner only).
+- Permissions: [.claude/settings.json](.claude/settings.json). Documented commands are allowed; force pushes, pushes to `main`, `gh pr merge`, releases and reads of `.env` are denied; edits to CI, agent configuration, `CLAUDE.md`, `AGENTS.md` and Loop files ask first.
+- CI: [.github/workflows/ci.yml](.github/workflows/ci.yml) runs on Linux and Windows and must be green. Until ticket #2 lands, the test step is guarded by the existence of `darkroom/__main__.py`; ticket #2 removes the guard.
+- Pull requests use [.github/pull_request_template.md](.github/pull_request_template.md). Each adds a line to [CHANGELOG.md](CHANGELOG.md).
+- Ticket labels: `status:ready`, `status:blocked`, `status:in-progress`, `needs-decision`. Epic: #1.
+- UI and copy rules: [docs/ui-quality.md](docs/ui-quality.md); skills `ui-ux-pro-max` and `unslop` under `.claude/skills/`.
+- Decisions the owner made, and where each is implemented: [docs/owner-decisions.md](docs/owner-decisions.md). An agent that finds one blocking a ticket stops and says so.
+- Only the owner merges and releases ([docs/RELEASING.md](docs/RELEASING.md)). Security reports: [SECURITY.md](SECURITY.md).
