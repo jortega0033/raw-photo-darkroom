@@ -23,7 +23,7 @@ RAW Photo Darkroom is a planned offline darkroom: CPython 3.12 standard library,
 
 **Reject** claims that a command works when ticket #2 has not introduced it, "tests pass" without output, fixtures whose numbers were copied from the code under test, and any criterion silently dropped.
 
-**Not applicable from the generic text:** screenshot-folder and Playwright evidence; browser checks here are recorded manually unless a ticket adds a harness.
+**Not applicable from the generic text:** screenshot-folder and Playwright evidence. A browser check the ticket marks manual is accepted only as an agent-run part with evidence plus the remainder listed under "Owner checks"; an agent's claim to have done a manual check by hand is not evidence.
 
 **Hand back:** pass or fail per criterion, what evidence is missing, and an overall verdict.
 
