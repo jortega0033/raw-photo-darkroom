@@ -70,3 +70,9 @@ One sentence beginning "Use proactively" was appended to the `description:` line
 This supersedes any statement above that a role file is unmodified or that the `tools:` line is the only local change. To compare a role with the pinned upstream file, remove that sentence (and the `tools:` line where one was added) first.
 
 The steps at which each role runs are in `.claude/skills/implement-ticket/SKILL.md`.
+
+## Local change: tailored project sections (2026-11-22)
+
+A section titled "In this repository" was inserted after the frontmatter of every Agency Agents role in `.claude/agents/`. It is project-specific text written for this repository, not upstream text, and it describes the planned stack and modules (no application code exists yet). To compare a role with the pinned upstream file, remove that section as well as the "Use proactively" sentence and the `tools:` line.
+
+The `claude -p` loading check was not run for this change. Loading is unverified for these files.
