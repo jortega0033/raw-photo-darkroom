@@ -65,7 +65,7 @@ Report each item with the exact command and its observed output; state what was 
 5. For export changes: decode the PNG with an independent reader and check dimensions, chunk allowlist and source digest unchanged.
 6. The reviewer and acceptance roles named in the pull request have returned a verdict on the final diff, after the last code edit.
 7. No file outside the ticket's stated paths changed.
-8. CI is green on the pull request (both operating systems), and `CHANGELOG.md` has a line for the change.
+8. CI is green on the pull request (both operating systems), checked by the driver before `gh pr ready`, and `CHANGELOG.md` has a line for the change. The reviewer and acceptance roles run on the local evidence before the draft pull request exists; they do not need a CI result.
 9. For UI changes, every changed screen was checked against `docs/ui-quality.md`; user-facing copy and docs went through the `unslop` skill.
 
 ## Ticket implementation: agent roles
@@ -88,7 +88,8 @@ Delegate to the roles without waiting to be asked; each description ends with a 
 - Permissions: [.claude/settings.json](.claude/settings.json). Documented commands are allowed; force pushes, pushes to `main`, `gh pr merge`, releases and reads of `.env` are denied; edits to CI, agent configuration, `CLAUDE.md`, `AGENTS.md` and Loop files ask first.
 - CI: [.github/workflows/ci.yml](.github/workflows/ci.yml) runs on Linux and Windows and must be green. Until ticket #2 lands, the test step is guarded by the existence of `darkroom/__main__.py`; ticket #2 removes the guard.
 - Pull requests use [.github/pull_request_template.md](.github/pull_request_template.md). Each adds a line to [CHANGELOG.md](CHANGELOG.md).
-- Ticket labels: `status:ready`, `status:blocked`, `status:in-progress`, `needs-decision`. Epic: #1.
+- Ticket labels: `status:ready`, `status:blocked`, `status:in-progress`, `needs-decision`, `tracking`. Epic: #1. Big tickets are split into sub-issues of 1 to 4 hours, one pull request each; a `tracking` parent or a ticket with open sub-issues is never picked, only leaf tickets. The pull request of the last open sub-issue says `Closes #<sub-issue>` and `Closes #<parent>`.
+- Waiting for CI: after the draft pull request is pushed, the session ends its turn with "Draft pull request #N is waiting for CI" and does not poll; when woken it reads `gh pr checks` once. Reviewers have no shell, so the diff and the check outputs go to `.claude/state/review/` in the ticket worktree. Acceptance steps that need a person are listed under "Owner checks" in the pull request.
 - UI and copy rules: [docs/ui-quality.md](docs/ui-quality.md); skills `ui-ux-pro-max` and `unslop` under `.claude/skills/`.
 - Decisions the owner made, and where each is implemented: [docs/owner-decisions.md](docs/owner-decisions.md). An agent that finds one blocking a ticket stops and says so.
 - Only the owner merges and releases ([docs/RELEASING.md](docs/RELEASING.md)). Security reports: [SECURITY.md](SECURITY.md).

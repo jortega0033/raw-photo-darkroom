@@ -21,6 +21,10 @@ Each command and its observed result. State what was not run.
 | Code Reviewer | | |
 | Reality Checker | | |
 
+## Owner checks
+
+Steps a person must do (marked manual in the ticket). Write "none" if there are none.
+
 ## Risks and rollback
 
 ## Checklist
