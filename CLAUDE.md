@@ -65,3 +65,18 @@ Report each item with the exact command and its observed output; state what was 
 5. For export changes: decode the PNG with an independent reader and check dimensions, chunk allowlist and source digest unchanged.
 6. The reviewer and acceptance roles named in the pull request have returned a verdict on the final diff.
 7. No file outside the ticket's stated paths changed.
+
+## Ticket implementation: agent roles run automatically
+
+When asked to implement, continue or finish a GitHub issue, follow the playbook in [`.claude/skills/implement-ticket/SKILL.md`](.claude/skills/implement-ticket/SKILL.md). Claude Code loads it on its own for ticket work; `/implement-ticket <issue number>` starts it by hand.
+
+Delegate to the project subagents in `.claude/agents/` without waiting to be asked:
+
+- **Before coding:** Software Architect, as their descriptions say.
+- **While coding:** the implementing role that matches the files being changed.
+- **After coding:** each specialist reviewer whose trigger matches the change.
+- **On every ticket, before it is called done:** Code Reviewer, then Reality Checker.
+- The session that wrote a change does not count as its reviewer.
+- List the roles that ran and their verdicts in the pull request description under "Agent roles run".
+
+Each role's `description` ends with a "Use proactively ..." sentence, which is what makes Claude Code delegate to it without being told.
