@@ -18,6 +18,21 @@ Decisions the owner made for this repository on 2026-11-22. Changing any entry n
 | 12 | The ten UI rules in `docs/ui-quality.md` are binding, and the `ui-ux-pro-max` and `unslop` skills are installed in the repository and used for UI work and for copy. | `docs/ui-quality.md`, `.claude/skills/ui-ux-pro-max/`, `.claude/skills/unslop/` |
 | 13 | Visual system (2026-11-23): Pipenzo Flow look tokens (docs/design-tokens.md). SDLC kit version: jortega0033/sdlc-kit v1.0.0. | `docs/design-tokens.md`, `darkroom/static/tokens.css` |
 
+## Entry 14: accent, focus, themes and linking (2026-11-23)
+
+Sources are given as recorded. Only D1 was decided by the owner; the "How" part of D1 and D2 to D5 were recommended by the orchestrator and adopted under the owner's delegation of the same day.
+
+| # | Decision | Source |
+|---|---|---|
+| D1 | Current selection: the yellow accent is used for the primary action, the current-step marker and the current selection (UI rule 8). | Decided by the owner on 2026-11-23. |
+| D1 (How) | A selection uses a solid --primary fill with --on-primary text (not only a yellow border, which has about 1.5:1 against white on light), plus a second sign that is not colour (weight, icon or text) and the existing aria attribute. Never a tint with a same-hue border and never a thick one-sided border. | Recommended by the orchestrator, adopted under the owner's delegation of the same day. |
+| D2 | Focus ring: --focus is a focus indicator, exempt from the accent limit, including where it is yellow in dark. A ticket that says the focus style stays unchanged means the rule on main after the token pull request. | Recommended by the orchestrator, adopted under the owner's delegation of 2026-11-23. |
+| D3 | Themes: contrast and no-colour-alone checks cover both the light and the dark block of tokens.css. | Recommended by the orchestrator, adopted under the owner's delegation of 2026-11-23. |
+| D4 | Linking: a ticket that creates a page or its static allowlist links tokens.css before any other stylesheet and serves it (allowlist and its test). | Recommended by the orchestrator, adopted under the owner's delegation of 2026-11-23. |
+| D5 | release-dependency-planner: while a plan is open only one yellow primary button shows; "New plan" (#new-plan) becomes neutral, in ticket #11. | Recommended by the orchestrator, adopted under the owner's delegation of 2026-11-23. |
+
+Written in `docs/design-tokens.md`. There is no page yet; screens built in ticket work (from #15) follow D1 to D4. D5 concerns another repository and is recorded only; the ticket #11 named in D5 is jortega0033/release-dependency-planner#11, because #11 in this repository is a different, ready ticket.
+
 ## Entry 10: decisions settled with the ticket default
 
 Each applies unless the owner answers otherwise. Ticket numbers are those of epic #1; E31-7 and E31-8 are the plan IDs of the two tickets created for the epic (their issue numbers are listed on the epic).
