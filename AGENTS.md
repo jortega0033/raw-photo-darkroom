@@ -4,9 +4,9 @@ The full repository instructions are in [CLAUDE.md](CLAUDE.md). This file repeat
 
 ## Status
 
-Planning only: no application code yet. The commands below are planned and introduced by ticket #2.
+Scaffold only: package layout, entry points and smoke tests exist; product behaviour comes from tickets.
 
-## Test commands (planned: introduced by ticket #2)
+## Test commands
 
 ```
 python -m unittest
@@ -14,7 +14,7 @@ python -m unittest
 
 Run it from the repository root (`python3` on Linux). Python 3.12 or newer, standard library only. Do not add pip or npm dependencies.
 
-## Run (planned: introduced by ticket #2)
+## Run (planned: exits 2 "not implemented yet: see #15" until ticket #15)
 
 ```
 python -m darkroom --data-dir ./darkroom-data --port 8765

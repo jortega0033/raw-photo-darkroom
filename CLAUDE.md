@@ -1,6 +1,6 @@
 # RAW Photo Darkroom: instructions for coding agents
 
-Planning-only repository today. There is no application code and no test suite yet. CI (.github/workflows/ci.yml) is installed; until ticket #2 lands it runs only the review-gate self-test. Everything below about commands and modules is planned; each item names the ticket that introduces it. Do not claim a command works until that ticket has merged and you have run it.
+Scaffold only. The package layout, entry points and a smoke test suite exist; no product behaviour is implemented. CI (.github/workflows/ci.yml) runs the tests and the review-gate self-test on Linux and Windows. Commands marked planned are introduced by the ticket named. Do not claim a planned command works until that ticket has merged and you have run it.
 
 ## Product and source of truth
 
@@ -30,13 +30,14 @@ Nothing below runs yet.
 
 | Purpose | Command | Status |
 |---|---|---|
-| Run all tests | `python -m unittest` from the repository root (`python3` on Linux) | planned: introduced by ticket #2 |
-| Start the app | `python -m darkroom --data-dir ./darkroom-data --port 8765` | planned: introduced by ticket #2 |
-| Generate fixtures | `python tools/make_fixtures.py --out tests/fixtures` | planned: introduced by ticket #2 |
+| Run all tests | `python -m unittest` from the repository root (`python3` on Linux) | works: scaffold smoke tests, grown by every ticket |
+| Check the entry point | `python -m darkroom --version` | works |
+| Start the app | `python -m darkroom --data-dir ./darkroom-data --port 8765` | planned: exits 2 with "not implemented yet: see #15" until ticket #15 |
+| Generate fixtures | `python tools/make_fixtures.py --out tests/fixtures` | planned: exits 2 with "not implemented yet: see #11" until ticket #11 |
 
-Final names are fixed by ticket #2, which must then update this table and replace "planned" with the observed result.
+There is no linter, formatter or type checker: the stack allows no pip dependency. Ticket #2 and its children update this table and replace "planned" with the observed result.
 
-## Module boundaries (planned)
+## Module boundaries (files exist, logic comes from tickets)
 
 From "Runtime and ownership" in the technical specification: keep engine, file parser, storage and HTTP modules separate. The dependency direction is HTTP to storage and engine; storage and engine to parser results; nothing imports the HTTP layer. Details in [docs/architecture.md](docs/architecture.md).
 
@@ -86,7 +87,7 @@ Delegate to the roles without waiting to be asked; each description ends with a 
 - Start: the owner types `/next-ticket` ([.claude/skills/next-ticket/SKILL.md](.claude/skills/next-ticket/SKILL.md)); that is the go signal. Ticket work never starts on its own, and there is no scheduler. The work itself follows [.claude/skills/implement-ticket/SKILL.md](.claude/skills/implement-ticket/SKILL.md).
 - Review gate: [.claude/hooks/role_gate.py](.claude/hooks/role_gate.py) blocks `gh pr create` and `gh pr ready` until Code Reviewer and Reality Checker have run after the last code edit; documentation-only changes pass. Start Claude Code with `ROLE_GATE=off` in the environment to switch it off for one session (owner only).
 - Permissions: [.claude/settings.json](.claude/settings.json). Documented commands are allowed; force pushes, pushes to `main`, `gh pr merge`, releases and reads of `.env` are denied; edits to CI, agent configuration, `CLAUDE.md`, `AGENTS.md` and Loop files ask first.
-- CI: [.github/workflows/ci.yml](.github/workflows/ci.yml) runs on Linux and Windows and must be green. Until ticket #2 lands, the test step is guarded by the existence of `darkroom/__main__.py`; ticket #2 removes the guard.
+- CI: [.github/workflows/ci.yml](.github/workflows/ci.yml) runs on Linux and Windows and must be green. The tests run unconditionally.
 - Pull requests use [.github/pull_request_template.md](.github/pull_request_template.md). Each adds a line to [CHANGELOG.md](CHANGELOG.md).
 - Ticket labels: `status:ready`, `status:blocked`, `status:in-progress`, `needs-decision`, `tracking`. Epic: #1. Big tickets are split into sub-issues of 1 to 4 hours, one pull request each; a `tracking` parent or a ticket with open sub-issues is never picked, only leaf tickets. The pull request of the last open sub-issue says `Closes #<sub-issue>` and `Closes #<parent>`.
 - Waiting for CI: after the draft pull request is pushed, the session ends its turn with "Draft pull request #N is waiting for CI" and does not poll; when woken it reads `gh pr checks` once. Reviewers have no shell, so the diff and the check outputs go to `.claude/state/review/` in the ticket worktree. Acceptance steps that need a person are listed under "Owner checks" in the pull request.
