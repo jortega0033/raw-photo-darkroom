@@ -24,9 +24,9 @@ An offline digital-negative darkroom: open a small supported DNG, compare neutra
 - Privacy: skip EXIF, GPS, MakerNote, thumbnails and camera identity on read; never print them; exported PNG carries no source metadata; never show original absolute paths; generated project IDs and allowlisted output names only.
 - Never crawl a directory. Only files the user selects are imported, and the source file is never modified.
 
-## Planned commands
+## Commands
 
-Nothing below runs yet.
+Status shows what was observed; planned rows name the ticket that makes them work.
 
 | Purpose | Command | Status |
 |---|---|---|
