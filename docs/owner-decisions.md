@@ -31,7 +31,7 @@ Sources are given as recorded. Only D1 was decided by the owner; the "How" part 
 | D4 | Linking: a ticket that creates a page or its static allowlist links tokens.css before any other stylesheet and serves it (allowlist and its test). | Recommended by the orchestrator, adopted under the owner's delegation of 2026-11-23. |
 | D5 | release-dependency-planner: while a plan is open only one yellow primary button shows; "New plan" (#new-plan) becomes neutral, in ticket #11. | Recommended by the orchestrator, adopted under the owner's delegation of 2026-11-23. |
 
-Written in `docs/design-tokens.md`. The page follows in ticket work; it is not changed here. D5 concerns another repository and is recorded only.
+Written in `docs/design-tokens.md`. There is no page yet; screens built in ticket work (from #15) follow D1 to D4. D5 concerns another repository and is recorded only; the ticket #11 named in D5 is jortega0033/release-dependency-planner#11, because #11 in this repository is a different, ready ticket.
 
 ## Entry 10: decisions settled with the ticket default
 

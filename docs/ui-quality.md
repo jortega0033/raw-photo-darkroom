@@ -20,4 +20,5 @@ Binding for every screen this application ships. Rules 1 and 2 were stated by th
 - Code Reviewer checks these rules on every UI diff; Frontend Developer, Accessibility Auditor and Software Architect name this page in their checklists.
 - Enforcement is by the review gate, not by a script. Rule 1 can be linted; rule 2 cannot be detected reliably from CSS.
 - The product also has its own requirements (labelled controls, keyboard stepping, clipping shown in text as well as in the image, pending and rejected states) in [TECHNICAL_SPEC.md](TECHNICAL_SPEC.md); those apply in addition.
+- Rule 8 is read with the accent, current selection and focus ring rules in [design-tokens.md](design-tokens.md) and entry 14 in [owner-decisions.md](owner-decisions.md): the accent also marks the current step, and `--focus` is a focus indicator, exempt from the accent limit.
 - Colours and type come from the shared tokens in [design-tokens.md](design-tokens.md) (`darkroom/static/tokens.css`); new UI uses them and adds no colour literals.
