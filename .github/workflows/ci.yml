@@ -26,11 +26,7 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ matrix.python }}
-      # Guard: the application does not exist yet, so there is no test suite to run.
-      # Ticket #2 (walking skeleton) creates darkroom/__main__.py and tests/, and must
-      # delete this `if:` line so that the tests run unconditionally.
       - name: Run tests
-        if: ${{ hashFiles('darkroom/__main__.py') != '' }}
         run: python -m unittest
       - name: Review gate self-test
         run: python .claude/hooks/role_gate.py --self-test
