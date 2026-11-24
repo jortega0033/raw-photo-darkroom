@@ -6,4 +6,5 @@ All notable changes to this project are recorded here, in the [Keep a Changelog]
 
 ### Added
 
+- Program goal, score and phases 1 to 6 (#29).
 - Delivery tooling: review gate hook, CI, pull request template, ticket driver, UI and writing skills.

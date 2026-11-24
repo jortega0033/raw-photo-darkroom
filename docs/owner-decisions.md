@@ -54,3 +54,13 @@ Each applies unless the owner answers otherwise. Ticket numbers are those of epi
 | 13 | Concurrent batch | Second batch refused while one runs | E31-8 |
 | 14 | Orphan cleanup interface | `python -m darkroom orphans --list` and `--remove` | E31-7 |
 | 15 | Host header policy | Accept only `127.0.0.1:<port>` and `localhost:<port>` | #2 |
+
+## Program decisions (owner, 2026-11-24)
+
+The owner accepted the goal and each suggestion below. They apply from the phase they name; the rules of `CLAUDE.md` hold for phase 1 as written.
+
+| Decision | Implemented in |
+|---|---|
+| The repository has a program goal above phase 1: a RAW photo developer from sensor bytes to print, in six phases. | Program issue #29 |
+| Real camera files need a licence-clean source. Suggested: only files released to the public domain, listed with their origin. | Program issue #29 |
+| GPU work leaves the CPU-only rule. Suggested: the CPU result stays the reference. | Program issue #29 |

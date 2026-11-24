@@ -1,5 +1,7 @@
 # RAW Photo Darkroom
 
+> This document specifies phase 1 of the program in [#29](https://github.com/jortega0033/raw-photo-darkroom/issues/29). Hour figures in it are early estimates for that phase; its open tickets add up to 26 to 42 hours (2026-11-24). Work that it defers is planned in the later phases only where the program names it.
+
 ## Product requirements
 
 A photographer working offline can open a small supported digital-negative file, compare an original rendering with a developed view, adjust exposure and color, save those adjustments, and export the result. The original is held as immutable bytes. Reversing an edit or restarting the workspace restores the same look from the same recipe. The first useful demo uses an original synthetic image with inspectable pixel values.
